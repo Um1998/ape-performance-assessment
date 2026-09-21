@@ -1,0 +1,99 @@
+table dim_agent
+	lineageTag: 3f2bb5b2-9f4d-4fd5-97e6-d43afd8c9d2e
+
+	column agent_id
+		dataType: int64
+		formatString: 0
+		lineageTag: aac6fb33-c1ba-454c-ad66-fd7b6084c046
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_code
+		dataType: string
+		lineageTag: 3159c471-4b99-48f2-bb32-a5182e80dd0b
+		summarizeBy: none
+		sourceColumn: agent_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_name
+		dataType: string
+		lineageTag: eecceaef-3431-4289-80f7-e20b44bc69ca
+		summarizeBy: none
+		sourceColumn: agent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 3e9a7983-b281-49f8-87ab-a43f5229d305
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column territory
+		dataType: string
+		lineageTag: 0d83ebcd-e4ce-477d-b1ca-84fd44cb1363
+		summarizeBy: none
+		sourceColumn: territory
+
+		annotation SummarizationSetBy = Automatic
+
+	column office
+		dataType: string
+		lineageTag: 02ae150b-473e-4e0a-b989-2577e0f56439
+		summarizeBy: none
+		sourceColumn: office
+
+		annotation SummarizationSetBy = Automatic
+
+	column join_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 01f9502b-7a82-4d2b-94c9-5b9673b470c7
+		summarizeBy: none
+		sourceColumn: join_date
+
+		variation Variation
+			isDefault
+			relationship: c092789a-99d8-4c3c-998b-ccedc4d8b6b0
+			defaultHierarchy: LocalDateTable_250e1094-c2f4-447c-83cc-0f003224f468.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column channel
+		dataType: string
+		lineageTag: affcb9b8-5fab-4e65-a9bb-03f11735a620
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f67c1fb-89fc-4d79-971e-ddd9c4034254
+		summarizeBy: sum
+		sourceColumn: active_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_agent = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\dim_agent.csv"),[Delimiter=",", Columns=9, QuoteStyle=QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"agent_id", Int64.Type}, {"agent_code", type text}, {"agent_name", type text}, {"region", type text}, {"territory", type text}, {"office", type text}, {"join_date", type date}, {"channel", type text}, {"active_flag", Int64.Type}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,291 @@
+table 'Measures Table'
+	lineageTag: a7931ee6-a82a-4bd4-b757-94d138355648
+
+	measure m_agents_count =
+			
+			var AgentSales = DISTINCTCOUNT(fact_sales[agent_id])
+			var AgentAgent = DISTINCTCOUNT(dim_agent[agent_id])
+			RETURN AgentAgent
+		formatString: 0
+		isHidden
+		lineageTag: 5d2bf824-adb3-4149-a10a-ad9847f7ee80
+
+		changedProperty = IsHidden
+
+	measure m_ape =
+			
+			SUM(fact_sales[ape_usd])
+		lineageTag: 4fb15985-dbe9-4d02-98f2-8ed688448ae6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_ape(YTD) =
+			
+			TOTALYTD(
+			    [m_ape],
+			    dim_date[date]
+			)
+		lineageTag: 41b6daa4-d3b4-4abb-ad88-bf7f1f71111d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_ape_MoM_growth% =
+			
+			var currentAPE = 'Measures Table'[m_ape]
+			var lastMonthAPE = 'Measures Table'[m_last_month_ape]
+			RETURN DIVIDE((currentAPE - lastMonthAPE), (lastMonthAPE))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 11237405-061a-42ec-a539-7de520778c45
+
+	measure m_last_month_ape =
+			
+			CALCULATE(
+			    [m_ape],
+			    DATEADD(dim_date[date],-1,MONTH)
+			)
+		lineageTag: 20643de1-8b93-427e-a96a-3bfcc600927c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_ape_rolling_3_months =
+			
+			CALCULATE(
+			    [m_ape],
+			    DATESINPERIOD(
+			        dim_date[date],
+			        MAX(dim_date[date]),
+			        -3,
+			        MONTH
+			    )
+			)
+		lineageTag: 62867c49-9248-44fb-9f30-02a7c81e8980
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_policies_renewed =
+			
+			CALCULATE(
+			    COUNTROWS(FILTER( fact_persistency, fact_persistency[renewal_status] = "renewed" ))
+			)
+		formatString: 0
+		lineageTag: a5be1ad1-333f-473c-bd8a-7ca194245099
+
+	measure m_policies_due =
+			
+			CALCULATE(
+			    COUNTROWS(FILTER( fact_persistency,
+			            fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" } ))
+			)
+		formatString: 0
+		lineageTag: 54dc2d3e-b054-4377-b0fa-f7dbd09e137c
+
+	measure m_persistency_rate = ```
+			
+			    DIVIDE(
+			        COUNTROWS( FILTER( fact_persistency, fact_persistency[renewal_status] = "renewed" ) ),
+			        COUNTROWS( FILTER( fact_persistency,
+			            fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" } ) )
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 85af5c05-ab27-4a8a-b92c-ab9ee2311c7b
+
+	measure m_active_agent_count =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(dim_agent[agent_id]),
+			    dim_agent[active_flag] = 1
+			)
+		formatString: 0
+		lineageTag: 22c9a0e7-6c68-4c68-94d9-3b13dd8b76cc
+
+	measure m_agent_rank_ytd =
+			
+			RANKX(
+			    ALL(dim_agent[agent_name]),
+			    [m_ape(YTD)],
+			    ,
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: 5748e0f4-e849-4b8c-af04-f0b3d9e00c4f
+
+	measure m_monthly_target =
+			
+			SUM(fact_target[ape_target_usd])
+		lineageTag: 7d780860-964a-4b8f-9293-dcc290e1de8c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_acheivement_pct =
+			
+			DIVIDE([m_ape],[m_monthly_target],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 53754448-faea-49d1-b254-70f1afdba944
+
+	measure m_performance_status =
+			
+			SWITCH(
+			    TRUE(),
+			    [m_acheivement_pct] >= 1, "Above Target",
+			    [m_acheivement_pct] >= 0.8, "On Track",
+			    "Below Target"
+			)
+		lineageTag: 686c57d8-327c-4f1a-86f6-8f896685d9a2
+
+	measure m_selected_agent =
+			
+			SELECTEDVALUE(
+			    dim_agent[agent_name],
+			    "Select an Agent"
+			)
+		lineageTag: 723cdfb7-64fc-4106-8486-00ab0ede57c8
+
+	measure m_territory =
+			
+			SELECTEDVALUE(
+			    dim_agent[territory]
+			)
+		lineageTag: e77c49d4-019e-4264-959a-f6b02fc25406
+
+	measure m_top_product =
+			
+			VAR T =
+			TOPN(
+			    1,
+			    VALUES(dim_product[product_name]),
+			    [m_ape],
+			    DESC
+			)
+			RETURN
+			MAXX(
+			    T,
+			    dim_product[product_name]
+			)
+		lineageTag: d1ec9881-17fc-4200-a542-d02c22ad6c43
+
+	measure m_mom_change =
+			
+			DIVIDE(
+			    [m_ape] - [m_last_month_ape],
+			    [m_last_month_ape]
+			)
+		lineageTag: 7cb9125d-ac87-4f50-bca4-25b7fb486447
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_trend_arrow =
+			
+			IF(
+			    [m_mom_change] >= 0,
+			    "▲",
+			    "▼"
+			)
+		lineageTag: 389be560-c859-4d81-b854-6693ef442b54
+
+	measure m_agent_profile_html =
+			
+			"
+			<div style='font-family:Segoe UI;
+			padding:20px;
+			border:2px solid #0078D4;
+			border-radius:12px;
+			background-color:#F8F9FA'>
+			
+			<h2 style='color:#0078D4'>
+			Agent Profile
+			</h2>
+			
+			<p><b>Agent:</b> " &
+			[m_selected_agent] &
+			"</p>
+			
+			<p><b>Territory:</b> " &
+			[m_territory] &
+			"</p>
+			
+			<p><b>YTD APE:</b> " &
+			FORMAT([m_ape(YTD)],"#,##0") &
+			"</p>
+			
+			<p><b>Rank:</b> " &
+			FORMAT([m_agent_rank_ytd],"0") &
+			"</p>
+			
+			<p><b>MoM Trend:</b> " &
+			[m_trend_arrow] & " " &
+			FORMAT([m_mom_change],"0.0%") &
+			"</p>
+			
+			<p><b>Top Product:</b> " &
+			[m_top_product] &
+			"</p>
+			
+			<p><b>Persistency:</b> " &
+			FORMAT([m_persistency_rate],"0.0%") &
+			"</p>
+			
+			</div>
+			"
+		lineageTag: dbe8cd55-b230-410c-b945-267cebdee96b
+
+	measure m_total_ape =
+			
+			SUMX(
+			    fact_sales,
+			    var Premium = fact_sales[ape_usd]
+			    var Policies = fact_sales[policies_issued]
+			    var IsSingle = RELATED(dim_product[premium_type]) = "Single"
+			    RETURN Premium * Policies / IF(IsSingle,10,1)
+			)
+		isHidden
+		lineageTag: 17788bc5-db1c-4930-bb35-9181f838aadc
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_APE_Target_Pct =
+			
+			DIVIDE(
+			    [m_ape] - [m_monthly_target],
+			    [m_monthly_target]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6764912b-6a39-4bd2-9a0b-f068b07f4fff
+
+	measure 'APE (YTD) Last Year' =
+			
+			CALCULATE(
+			    [m_ape(YTD)],
+			    SAMEPERIODLASTYEAR(dim_date[date])
+			)
+		lineageTag: 68ba87c0-7bc0-48d8-8abe-a6f6206330b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: 9a65bdbd-fd1e-40f7-93ca-0125ba9a48e5
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Measures Table' = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t])
+				in
+				  Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

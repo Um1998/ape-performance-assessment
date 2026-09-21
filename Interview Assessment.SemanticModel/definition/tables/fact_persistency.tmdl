@@ -1,0 +1,80 @@
+table fact_persistency
+	lineageTag: e2570ce5-2a9d-4521-ad2f-4cfe3d90a46f
+
+	column policy_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 74aacc3a-04fc-461a-a12e-225c6d993027
+		summarizeBy: sum
+		sourceColumn: policy_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f1792b3-482a-4835-baba-d065fb736b8c
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f94f4826-38df-4edd-98c9-c2f2b661381e
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column issue_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3690ea32-6d59-40bd-92e9-800b0fdce77b
+		summarizeBy: sum
+		sourceColumn: issue_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_due_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: dcaaa21a-e4ce-4d6b-b53b-c2835c6ba718
+		summarizeBy: none
+		sourceColumn: renewal_due_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_status
+		dataType: string
+		lineageTag: be8aa28e-1cb6-49ad-84ed-110b3ab90ee3
+		summarizeBy: none
+		sourceColumn: renewal_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_usd
+		dataType: double
+		lineageTag: 3c9bab94-1fcc-4139-9003-147c07e43308
+		summarizeBy: sum
+		sourceColumn: premium_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_persistency = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\fact_persistency.csv"),[Delimiter=",", Columns=7, QuoteStyle=QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"policy_id", Int64.Type}, {"agent_id", Int64.Type}, {"product_id", Int64.Type}, {"issue_date_key", Int64.Type}, {"renewal_due_date_key", Int64.Type}, {"renewal_status", type text}, {"premium_usd", type number}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Interview Assessment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0786a803-8b27-4a9b-b199-0e7b16e93f70"
+  }
+}

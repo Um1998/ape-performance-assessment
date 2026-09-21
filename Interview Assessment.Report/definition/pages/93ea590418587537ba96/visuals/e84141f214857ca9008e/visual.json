@@ -1,0 +1,396 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e84141f214857ca9008e",
+  "position": {
+    "x": 263.47165486774736,
+    "y": 245.30119591135102,
+    "z": 0,
+    "height": 833.56980462468346,
+    "width": 1655.7830724016194,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_agent"
+                    }
+                  },
+                  "Property": "agent_name"
+                }
+              },
+              "queryRef": "dim_agent.agent_name",
+              "nativeQueryRef": "agent_name",
+              "displayName": "agent_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_ape"
+                }
+              },
+              "queryRef": "Measures Table.m_ape",
+              "nativeQueryRef": "m_ape"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_monthly_target"
+                }
+              },
+              "queryRef": "Measures Table.m_monthly_target",
+              "nativeQueryRef": "m_monthly_target"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_acheivement_pct"
+                }
+              },
+              "queryRef": "Measures Table.m_Acheivement %",
+              "nativeQueryRef": "m_acheivement_pct"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_agent"
+                  }
+                },
+                "Property": "agent_name"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n\n  \"height\": {\n    \"step\": 30\n  },\n\n  \"transform\": [\n    {\n      \"calculate\": \"datum.m_acheivement_pct >= 1 ? ''Above Target'' : datum.m_acheivement_pct >= 0.8 ? ''On Track'' : ''Below Target''\",\n      \"as\": \"Status\"\n    },\n    {\n      \"calculate\": \"0\",\n      \"as\": \"XPos\"\n    }\n  ],\n\n  \"mark\": {\n    \"type\": \"point\",\n    \"filled\": true,\n    \"size\": 300\n  },\n\n  \"encoding\": {\n\n    \"y\": {\n      \"field\": \"agent_name\",\n      \"type\": \"nominal\",\n      \"title\": \"Agent\",\n      \"axis\":{\n        \"labelFontSize\": 16\n      }\n    },\n\n    \"x\": {\n      \"field\": \"XPos\",\n      \"type\": \"quantitative\",\n      \"axis\": null,\n      \"scale\": {\n        \"domain\": [-1, 1]\n      }\n    },\n\n    \"color\": {\n      \"field\": \"Status\",\n      \"type\": \"nominal\",\n      \"legend\": {\n        \"title\": \"Performance\"\n      },\n      \"scale\": {\n        \"domain\": [\n          \"Above Target\",\n          \"On Track\",\n          \"Below Target\"\n        ],\n        \"range\": [\n          \"#00B050\",\n          \"#FFC000\",\n          \"#FF0000\"\n        ]\n      }\n    },\n\n    \"tooltip\": [\n      {\n        \"field\": \"agent_name\",\n        \"title\": \"Agent\"\n      },\n      {\n        \"field\": \"m_ape\",\n        \"title\": \"APE\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_monthly_target\",\n        \"title\": \"Target\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_acheivement_pct\",\n        \"title\": \"Achievement %\",\n        \"format\": \".1%\"\n      }\n    ]\n  },\n\n  \"config\": {\n    \"view\": {\n      \"stroke\": null\n    }\n  }\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenuSelector": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            },
+            "selectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'simple'"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.3'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stateManagement": [
+        {
+          "properties": {
+            "denebMetaVersion": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2'"
+                }
+              }
+            },
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "802D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "1622D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataLimit": [
+        {
+          "properties": {
+            "override": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableIncrementalDataUpdates": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "incrementalUpdateThreshold": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2.0.0.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "display": [
+        {
+          "properties": {
+            "scrollbarOpacity": {
+              "expr": {
+                "Literal": {
+                  "Value": "20L"
+                }
+              }
+            },
+            "scrollbarWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            },
+            "scrollEventThrottle": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d0ecc1c82ddd9b28b009",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_agent"
+              }
+            },
+            "Property": "agent_name"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_agent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "agent_name"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "2b034d654b75772dad16",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Table"
+              }
+            },
+            "Property": "m_ape"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27464847380d0da340db",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Table"
+              }
+            },
+            "Property": "m_monthly_target"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5bb797a3d6c410307e21",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Table"
+              }
+            },
+            "Property": "m_acheivement_pct"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

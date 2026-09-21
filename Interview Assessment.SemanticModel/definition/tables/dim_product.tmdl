@@ -1,0 +1,58 @@
+table dim_product
+	lineageTag: 03fad049-02d5-4618-881f-6d53a4915f74
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c6c9ad9-fabe-4ad9-a17c-6e35f91d01e9
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_code
+		dataType: string
+		lineageTag: 0e14d872-2283-4e2c-b86e-2a9972c133a9
+		summarizeBy: none
+		sourceColumn: product_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: cbe039a6-cf83-447f-b14b-eedaa5b88b60
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category
+		dataType: string
+		lineageTag: 51363355-d932-4ab4-86d3-1b406380eef0
+		summarizeBy: none
+		sourceColumn: product_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_type
+		dataType: string
+		lineageTag: 8e249b36-7d57-4ad1-b0fd-6712e5e8f733
+		summarizeBy: none
+		sourceColumn: premium_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\dim_product.csv"),[Delimiter=",", Columns=5, QuoteStyle=QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"product_id", Int64.Type}, {"product_code", type text}, {"product_name", type text}, {"product_category", type text}, {"premium_type", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

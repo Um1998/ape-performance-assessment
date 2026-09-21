@@ -1,0 +1,7 @@
+role 'Territory Level Access'
+	modelPermission: read
+
+	tablePermission dim_security = dim_security[User Email] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = 63da2ff14ef74de992f9d49f25753803
+

@@ -1,0 +1,33 @@
+table dim_security
+	lineageTag: 0c5027e7-1423-4a21-bc24-2d5d79e12024
+
+	column 'User Email'
+		dataType: string
+		lineageTag: dbf23d1c-e397-47f9-a697-9bd904733f17
+		summarizeBy: none
+		sourceColumn: User Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Access'
+		dataType: string
+		lineageTag: 98967539-f4ca-4b66-94f1-905ec94c468c
+		summarizeBy: none
+		sourceColumn: Territory Access
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_security = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\dim_security.csv"),[Delimiter=",", Columns=2, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"User Email", type text}, {"Territory Access", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

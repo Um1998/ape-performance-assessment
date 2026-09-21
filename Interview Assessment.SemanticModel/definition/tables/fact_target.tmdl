@@ -1,0 +1,65 @@
+table fact_target
+	lineageTag: aeaf4d4e-9d1e-4bdb-ae7d-534b8d4bbe16
+
+	column agent_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e26a2d76-261a-445c-97c4-1708ae26bb99
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 712b4a85-e141-4e61-8fcb-d5fb456c9382
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: e9766277-53f7-406d-9456-bcb6e8a525f6
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ape_target_usd
+		dataType: double
+		lineageTag: dcf9875b-3a15-4ecc-9359-af436be2f2fd
+		summarizeBy: sum
+		sourceColumn: ape_target_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: fcf65078-f206-4745-a90d-ff7fbdc70df0
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_target = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\fact_target.csv"),[Delimiter=",", Columns=4, QuoteStyle=QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"agent_id", Int64.Type}, {"year", Int64.Type}, {"month", Int64.Type}, {"ape_target_usd", type number}}, "en-US"),
+				    #"Added Custom" = Table.AddColumn(#"Changed column type", "date_key", each [year] * 100 + [month]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"date_key", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
