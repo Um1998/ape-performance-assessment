@@ -4,7 +4,29 @@
     "x": 63,
     "y": 12,
     "z": 4,
-    "height": 29,
+    "height": 38,
     "width": 253
+  },
+  "objects": {
+    "general": [
+      {
+        "properties": {
+          "paragraphs": [
+            {
+              "textRuns": [
+                {
+                  "value": "APE Performance Report",
+                  "textStyle": {
+                    "fontSize": "16pt",
+                    "color": "#ffffff"
+                  }
+                }
+              ],
+              "horizontalTextAlignment": "center"
+            }
+          ]
+        }
+      }
+    ]
   }
 }

@@ -4,7 +4,38 @@
     "x": 0,
     "y": 62,
     "z": 7,
-    "height": 43,
+    "height": 53,
     "width": 91
+  },
+  "objects": {
+    "data": [],
+    "header": [
+      {
+        "properties": {
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "9D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "items": [
+      {
+        "properties": {
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "selection": [],
+    "general": []
   }
 }

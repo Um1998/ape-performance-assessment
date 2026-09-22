@@ -150,6 +150,13 @@
                               "Value": "null"
                             }
                           }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Unassigned'"
+                            }
+                          }
                         ]
                       ]
                     }

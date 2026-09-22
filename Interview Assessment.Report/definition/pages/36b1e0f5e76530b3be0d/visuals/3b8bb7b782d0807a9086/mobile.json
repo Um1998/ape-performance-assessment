@@ -6,5 +6,36 @@
     "z": 5,
     "height": 43,
     "width": 89
+  },
+  "objects": {
+    "data": [],
+    "header": [
+      {
+        "properties": {
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "9D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "items": [
+      {
+        "properties": {
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "selection": [],
+    "general": []
   }
 }

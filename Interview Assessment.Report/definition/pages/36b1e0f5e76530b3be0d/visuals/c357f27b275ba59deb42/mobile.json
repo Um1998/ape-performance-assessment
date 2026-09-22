@@ -4,7 +4,123 @@
     "x": 2,
     "y": 544,
     "z": 13,
-    "height": 309,
+    "height": 310,
     "width": 322
+  },
+  "objects": {
+    "labels": [
+      {
+        "properties": {
+          "labelPosition": {
+            "expr": {
+              "Literal": {
+                "Value": "'OutsideEnd'"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "bold": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "italic": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "enableDetailDataLabel": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "optimizeLabelDisplay": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "categoryAxis": [
+      {
+        "properties": {}
+      }
+    ],
+    "valueAxis": []
+  },
+  "visualContainerObjects": {
+    "title": [
+      {
+        "properties": {
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "12D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "subTitle": [
+      {
+        "properties": {
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "10D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "stylePreset": [
+      {
+        "properties": {
+          "name": {
+            "expr": {
+              "Literal": {
+                "Value": "''"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }
