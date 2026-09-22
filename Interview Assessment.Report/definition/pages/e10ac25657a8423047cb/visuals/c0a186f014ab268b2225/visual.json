@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_date.month_name",
-              "nativeQueryRef": "month_name",
-              "active": true
+              "nativeQueryRef": "Month",
+              "active": true,
+              "displayName": "Month"
             }
           ]
         },
@@ -80,7 +81,7 @@
                       "Entity": "Measures Table"
                     }
                   },
-                  "Property": "m_monthly_target"
+                  "Property": "m_target"
                 }
               },
               "queryRef": "Measures Table.m_monthly_target",

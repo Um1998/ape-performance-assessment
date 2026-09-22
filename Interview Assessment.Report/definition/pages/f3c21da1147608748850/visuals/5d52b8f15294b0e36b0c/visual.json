@@ -105,56 +105,6 @@
                           ]
                         ]
                       }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "dim_date"
-                                }
-                              },
-                              "Property": "date"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2024L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "LocalDateTable_4fdefcdc-5bf4-46bc-9fb3-4156017a3bfd"
-                                    }
-                                  },
-                                  "Property": "Year"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "2024"
-                          }
-                        ]
-                      }
                     }
                   }
                 ]

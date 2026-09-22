@@ -844,6 +844,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.6
 			          }
+			        },
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6833,22 +6843,22 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measures_table.m_monthly_target": {
+			    "measures_table.m_target": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "m_monthly_target"
+			          "ConceptualProperty": "m_target"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "m monthly target": {
+			          "m target": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "m_monthly_target": {
+			          "m_target": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
@@ -6861,43 +6871,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "monthly target": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "m monthly focus": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "m monthly goal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "m monthly objective": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "monthly focus": {
+			          "m focus": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6907,7 +6881,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "monthly goal": {
+			          "m goal": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6917,7 +6891,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "monthly objective": {
+			          "m objective": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6964,29 +6938,6 @@ cultureInfo en-US
 			              "Agent": "PowerBI.VisualColumnRename"
 			            },
 			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "measures_table.m_acheivement_pct": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "m_acheivement_pct"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "m acheivement pct": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "m_acheivement_pct": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
 			          }
 			        }
 			      ]
@@ -8037,6 +7988,118 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
+			    "fact_persistency_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_persistency"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Prepositions": [
+			              {
+			                "due": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_are_due_dim_dates"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_dim_product": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "dim_product"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_dim_products"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_fact_persistency"
+			        }
+			      ]
+			    },
 			    "fact_persistency_has_dim_agent": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_persistency"
@@ -8419,6 +8482,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_product_has_measures_table_m_APE_target_pct": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_APE_target_pct": {
+			          "Target": {
+			            "Entity": "measures_table.m_APE_target_pct"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_APE_target_pct"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_APE_target_pct"
+			        }
+			      ]
+			    },
 			    "measures_table_has_m_agent_profile_html": {
 			      "Binding": {
 			        "ConceptualEntity": "Measures Table"
@@ -8452,15 +8548,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measures_table_has_m_trend_arrow": {
+			    "fact_sale_has_measures_table_m_trend_arrow": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "fact_sales"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "fact_sale": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.m_trend_arrow": {
@@ -8473,7 +8569,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.m_trend_arrow"
@@ -8481,19 +8577,52 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_m_trend_arrow"
+			          "ID": "fact_sales_have_m_trend_arrow"
 			        }
 			      ]
 			    },
-			    "measures_table_has_m_mom_change": {
+			    "dim_product_has_measures_table_m_trend_arrow": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "dim_product"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "dim_product": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_trend_arrow": {
+			          "Target": {
+			            "Entity": "measures_table.m_trend_arrow"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_trend_arrow"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_trend_arrow"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_mom_change": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.m_mom_change": {
@@ -8506,7 +8635,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.m_mom_change"
@@ -8514,7 +8643,40 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_m_mom_change"
+			          "ID": "fact_sales_have_m_mom_change"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_mom_change": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_mom_change": {
+			          "Target": {
+			            "Entity": "measures_table.m_mom_change"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_mom_change"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_mom_change"
 			        }
 			      ]
 			    },
@@ -8716,7 +8878,40 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_target_has_measures_table_m_acheivement_pct": {
+			    "dim_product_has_measures_table_m_performance_status": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_performance_status": {
+			          "Target": {
+			            "Entity": "measures_table.m_performance_status"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_performance_status"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_performance_status"
+			        }
+			      ]
+			    },
+			    "fact_target_has_measures_table_m_target": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_target"
 			      },
@@ -8727,9 +8922,9 @@ cultureInfo en-US
 			            "Entity": "fact_target"
 			          }
 			        },
-			        "measures_table.m_acheivement_pct": {
+			        "measures_table.m_target": {
 			          "Target": {
-			            "Entity": "measures_table.m_acheivement_pct"
+			            "Entity": "measures_table.m_target"
 			          }
 			        }
 			      },
@@ -8740,78 +8935,12 @@ cultureInfo en-US
 			              "Role": "fact_target"
 			            },
 			            "Object": {
-			              "Role": "measures_table.m_acheivement_pct"
+			              "Role": "measures_table.m_target"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_targets_have_m_acheivement_pct"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_measures_table_m_acheivement_pct": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "measures_table.m_acheivement_pct": {
-			          "Target": {
-			            "Entity": "measures_table.m_acheivement_pct"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_acheivement_pct"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_m_acheivement_pct"
-			        }
-			      ]
-			    },
-			    "fact_target_has_measures_table_m_monthly_target": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_target"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_target": {
-			          "Target": {
-			            "Entity": "fact_target"
-			          }
-			        },
-			        "measures_table.m_monthly_target": {
-			          "Target": {
-			            "Entity": "measures_table.m_monthly_target"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_target"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_monthly_target"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_targets_have_m_monthly_target"
+			          "ID": "fact_targets_have_m_target"
 			        }
 			      ]
 			    },
@@ -8980,15 +9109,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measures_table_has_m_ape_rolling_3_months": {
+			    "fact_sale_has_measures_table_m_ape_rolling_3_months": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "fact_sales"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "fact_sale": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.m_ape_rolling_3_months": {
@@ -9001,7 +9130,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.m_ape_rolling_3_months"
@@ -9009,19 +9138,52 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_m_ape_rolling_3_months"
+			          "ID": "fact_sales_have_m_ape_rolling_3_months"
 			        }
 			      ]
 			    },
-			    "measures_table_has_m_last_month_ape": {
+			    "dim_product_has_measures_table_m_ape_rolling_3_months": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "dim_product"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "dim_product": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_ape_rolling_3_months": {
+			          "Target": {
+			            "Entity": "measures_table.m_ape_rolling_3_months"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_ape_rolling_3_months"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_ape_rolling_3_months"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_last_month_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.m_last_month_ape": {
@@ -9034,7 +9196,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.m_last_month_ape"
@@ -9042,19 +9204,52 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_m_last_month_ape"
+			          "ID": "fact_sales_have_m_last_month_ape"
 			        }
 			      ]
 			    },
-			    "measures_table_has_m_ape_MoM_growth": {
+			    "dim_product_has_measures_table_m_last_month_ape": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "dim_product"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "dim_product": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_last_month_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_last_month_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_last_month_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_last_month_ape"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_ape_MoM_growth": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.m_ape_MoM_growth": {
@@ -9067,7 +9262,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.m_ape_MoM_growth"
@@ -9075,7 +9270,40 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_m_ape_MoM_growth"
+			          "ID": "fact_sales_have_m_ape_MoM_growth"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_ape_MoM_growth": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_ape_MoM_growth": {
+			          "Target": {
+			            "Entity": "measures_table.m_ape_MoM_growth"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_ape_MoM_growth"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_ape_MoM_growth"
 			        }
 			      ]
 			    },
@@ -9109,6 +9337,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_sales_have_m_apeYTD"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_apeYTD": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_apeYTD": {
+			          "Target": {
+			            "Entity": "measures_table.m_apeYTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_apeYTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_apeYTD"
 			        }
 			      ]
 			    },
@@ -9175,6 +9436,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_sales_have_m_ape"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_ape"
 			        }
 			      ]
 			    },
@@ -10411,15 +10705,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measures_table_has_APE_YTD_last_year": {
+			    "fact_sale_has_measures_table_APE_YTD_last_year": {
 			      "Binding": {
-			        "ConceptualEntity": "Measures Table"
+			        "ConceptualEntity": "fact_sales"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measures_table": {
+			        "fact_sale": {
 			          "Target": {
-			            "Entity": "measures_table"
+			            "Entity": "fact_sale"
 			          }
 			        },
 			        "measures_table.APE_YTD_last_year": {
@@ -10432,7 +10726,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measures_table"
+			              "Role": "fact_sale"
 			            },
 			            "Object": {
 			              "Role": "measures_table.APE_YTD_last_year"
@@ -10440,7 +10734,73 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measures_tables_have_APE_YTD_last_year"
+			          "ID": "fact_sales_have_APE_YTD_last_year"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_APE_YTD_last_year": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.APE_YTD_last_year": {
+			          "Target": {
+			            "Entity": "measures_table.APE_YTD_last_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.APE_YTD_last_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_APE_YTD_last_year"
+			        }
+			      ]
+			    },
+			    "dim_date_has_measures_table_APE_YTD_last_year": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "measures_table.APE_YTD_last_year": {
+			          "Target": {
+			            "Entity": "measures_table.APE_YTD_last_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "measures_table.APE_YTD_last_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_APE_YTD_last_year"
 			        }
 			      ]
 			    },
@@ -10660,118 +11020,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_agents_are_joined_on_join_dates"
-			        }
-			      ]
-			    },
-			    "fact_persistency_has_dim_product": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_persistency"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_persistency": {
-			          "Target": {
-			            "Entity": "fact_persistency"
-			          }
-			        },
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Object": {
-			              "Role": "dim_product"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_have_dim_products"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "fact_persistency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_fact_persistency"
-			        }
-			      ]
-			    },
-			    "fact_persistency_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_persistency"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_persistency": {
-			          "Target": {
-			            "Entity": "fact_persistency"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_persistency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_persistency"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Prepositions": [
-			              {
-			                "due": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_are_due_dim_dates"
 			        }
 			      ]
 			    },

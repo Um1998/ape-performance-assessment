@@ -12,9 +12,19 @@ table 'Measures Table'
 
 		changedProperty = IsHidden
 
-	measure m_ape =
+	measure m_ape = ```
 			
-			SUM(fact_sales[ape_usd])
+			// SUM(fact_sales[ape_usd])
+			SUMX (
+			    fact_sales,
+			    IF (
+			        RELATED ( dim_product[premium_type] ) = "single",
+			        fact_sales[ape_usd] / 10,
+			        fact_sales[ape_usd]
+			    )
+			)
+			
+			```
 		lineageTag: 4fb15985-dbe9-4d02-98f2-8ed688448ae6
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -112,25 +122,19 @@ table 'Measures Table'
 		formatString: 0
 		lineageTag: 5748e0f4-e849-4b8c-af04-f0b3d9e00c4f
 
-	measure m_monthly_target =
+	measure m_target =
 			
 			SUM(fact_target[ape_target_usd])
 		lineageTag: 7d780860-964a-4b8f-9293-dcc290e1de8c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure m_acheivement_pct =
-			
-			DIVIDE([m_ape],[m_monthly_target],0)
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 53754448-faea-49d1-b254-70f1afdba944
-
 	measure m_performance_status =
 			
 			SWITCH(
 			    TRUE(),
-			    [m_acheivement_pct] >= 1, "Above Target",
-			    [m_acheivement_pct] >= 0.8, "On Track",
+			    [m_APE_Target_Pct] >= 1, "Above Target",
+			    [m_APE_Target_Pct] >= 0.8, "On Track",
 			    "Below Target"
 			)
 		lineageTag: 686c57d8-327c-4f1a-86f6-8f896685d9a2
@@ -250,10 +254,10 @@ table 'Measures Table'
 	measure m_APE_Target_Pct =
 			
 			DIVIDE(
-			    [m_ape] - [m_monthly_target],
-			    [m_monthly_target]
+			    [m_ape],
+			    [m_target]
 			)
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 6764912b-6a39-4bd2-9a0b-f068b07f4fff
 
 	measure 'APE (YTD) Last Year' =

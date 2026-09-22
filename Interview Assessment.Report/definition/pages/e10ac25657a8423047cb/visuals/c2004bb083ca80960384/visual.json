@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "fact_sales.agent_name",
-              "nativeQueryRef": "agent_name",
-              "active": true
+              "nativeQueryRef": "Agent",
+              "active": true,
+              "displayName": "Agent"
             }
           ]
         },
