@@ -9,6 +9,6 @@
     "name": "78317b24358302bc2e01",
     "type": "Default",
     "parameters": [],
-    "referenceScope": "CrossReport"
+    "acceptsFilterContext": "None"
   }
 }

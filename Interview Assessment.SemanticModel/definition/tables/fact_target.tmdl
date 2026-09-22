@@ -54,10 +54,18 @@ table fact_target
 				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\fact_target.csv"),[Delimiter=",", Columns=4, QuoteStyle=QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"agent_id", Int64.Type}, {"year", Int64.Type}, {"month", Int64.Type}, {"ape_target_usd", type number}}, "en-US"),
-				    #"Added Custom" = Table.AddColumn(#"Changed column type", "date_key", each [year] * 100 + [month]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"date_key", Int64.Type}})
+				  #"Added Custom" = Table.AddColumn(#"Changed column type", "date_key", each [year] * 100 + [month]),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"date_key", Int64.Type}}),
+				  #"Added Unknown Agents" = Table.ReplaceValue(
+				    #"Changed Type",
+				    each [agent_id],
+				    each if List.Contains(DimAgentIds, [agent_id]) then [agent_id] else -1,
+				    Replacer.ReplaceValue,
+				    {"agent_id"}
+				),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Unknown Agents",{{"agent_id", Int64.Type}})
 				in
-				  #"Changed Type"
+				  #"Changed Type1"
 
 	annotation PBI_ResultType = Table
 

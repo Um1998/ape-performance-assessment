@@ -23,12 +23,40 @@
                       "Entity": "dim_agent"
                     }
                   },
+                  "Property": "agent_indentifier"
+                }
+              },
+              "queryRef": "dim_agent.agent_indentifier",
+              "nativeQueryRef": "agent_indentifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_agent"
+                    }
+                  },
                   "Property": "agent_name"
                 }
               },
               "queryRef": "dim_agent.agent_name",
               "nativeQueryRef": "agent_name",
               "displayName": "agent_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_agent"
+                    }
+                  },
+                  "Property": "agent_id"
+                }
+              },
+              "queryRef": "dim_agent.agent_id",
+              "nativeQueryRef": "agent_id"
             },
             {
               "field": {
@@ -85,7 +113,7 @@
                     "Entity": "dim_agent"
                   }
                 },
-                "Property": "agent_name"
+                "Property": "agent_indentifier"
               }
             },
             "direction": "Ascending"
@@ -108,7 +136,7 @@
             "jsonSpec": {
               "expr": {
                 "Literal": {
-                  "Value": "'{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n\n  \"height\": {\n    \"step\": 30\n  },\n\n  \"transform\": [\n    {\n      \"calculate\": \"datum.m_APE_Target_Pct >= 1 ? ''Above Target'' : datum.m_APE_Target_Pct >= 0.8 ? ''On Track'' : ''Below Target''\",\n      \"as\": \"Status\"\n    },\n    {\n      \"calculate\": \"0\",\n      \"as\": \"XPos\"\n    }\n  ],\n\n  \"mark\": {\n    \"type\": \"point\",\n    \"filled\": true,\n    \"size\": 300\n  },\n\n  \"encoding\": {\n\n    \"y\": {\n      \"field\": \"agent_name\",\n      \"type\": \"nominal\",\n      \"title\": \"Agent\",\n      \"axis\":{\n        \"labelFontSize\": 16\n      }\n    },\n\n    \"x\": {\n      \"field\": \"XPos\",\n      \"type\": \"quantitative\",\n      \"axis\": null,\n      \"scale\": {\n        \"domain\": [-1, 1]\n      }\n    },\n\n    \"color\": {\n      \"field\": \"Status\",\n      \"type\": \"nominal\",\n      \"legend\": {\n        \"title\": \"Performance\"\n      },\n      \"scale\": {\n        \"domain\": [\n          \"Above Target\",\n          \"On Track\",\n          \"Below Target\"\n        ],\n        \"range\": [\n          \"#00B050\",\n          \"#FFC000\",\n          \"#FF0000\"\n        ]\n      }\n    },\n\n    \"tooltip\": [\n      {\n        \"field\": \"agent_name\",\n        \"title\": \"Agent\"\n      },\n      {\n        \"field\": \"m_ape\",\n        \"title\": \"APE\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_target\",\n        \"title\": \"Target\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_APE_Target_Pct\",\n        \"title\": \"Achievement %\",\n        \"format\": \".1%\"\n      }\n    ]\n  },\n\n  \"config\": {\n    \"view\": {\n      \"stroke\": null\n    }\n  }\n}'"
+                  "Value": "'{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n\n  \"height\": {\n    \"step\": 30\n  },\n\n  \"transform\": [\n    {\n      \"calculate\": \"datum.m_APE_Target_Pct >= 1 ? ''Above Target'' : datum.m_APE_Target_Pct >= 0.8 ? ''On Track'' : ''Below Target''\",\n      \"as\": \"Status\"\n    },\n    {\n      \"calculate\": \"0\",\n      \"as\": \"XPos\"\n    }\n  ],\n\n  \"mark\": {\n    \"type\": \"point\",\n    \"filled\": true,\n    \"size\": 300\n  },\n\n  \"encoding\": {\n\n    \"y\": {\n      \"field\": \"agent_indentifier\",\n      \"type\": \"nominal\",\n      \"title\": \"Agent\",\n      \"axis\":{\n        \"labelFontSize\": 20\n      }\n    },\n\n    \"x\": {\n      \"field\": \"XPos\",\n      \"type\": \"quantitative\",\n      \"axis\": null,\n      \"scale\": {\n        \"domain\": [-1, 1]\n      }\n    },\n\n    \"color\": {\n      \"field\": \"Status\",\n      \"type\": \"nominal\",\n      \"legend\": {\n        \"title\": \"Performance\"\n      },\n      \"scale\": {\n        \"domain\": [\n          \"Above Target\",\n          \"On Track\",\n          \"Below Target\"\n        ],\n        \"range\": [\n          \"#00B050\",\n          \"#FFC000\",\n          \"#FF0000\"\n        ]\n      }\n    },\n\n    \"tooltip\": [\n      {\n        \"field\": \"agent_name\",\n        \"title\": \"Agent\"\n      },\n      {\n        \"field\": \"agent_id\",\n        \"title\": \"Agent ID\"\n      },\n      {\n        \"field\": \"m_ape\",\n        \"title\": \"APE\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_target\",\n        \"title\": \"Target\",\n        \"format\": \",.0f\"\n      },\n      {\n        \"field\": \"m_APE_Target_Pct\",\n        \"title\": \"Achievement %\",\n        \"format\": \".1%\"\n      }\n    ]\n  },\n\n  \"config\": {\n    \"view\": {\n      \"stroke\": null\n    }\n  }\n}'"
                 }
               }
             },
@@ -271,6 +299,26 @@
             }
           }
         }
+      ],
+      "editor": [
+        {
+          "properties": {
+            "showViewportMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "previewScrollbars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -290,49 +338,6 @@
           }
         },
         "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "dim_agent",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "agent_name"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "objects": {
           "general": [
             {
@@ -348,20 +353,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "2b034d654b75772dad16",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measures Table"
-              }
-            },
-            "Property": "m_ape"
-          }
-        },
-        "type": "Advanced"
       },
       {
         "name": "27464847380d0da340db",
@@ -387,6 +378,20 @@
               }
             },
             "Property": "m_APE_Target_Pct"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2b9bb50a04915aa843e0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Table"
+              }
+            },
+            "Property": "m_ape"
           }
         },
         "type": "Advanced"

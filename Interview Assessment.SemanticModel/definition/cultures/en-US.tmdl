@@ -558,6 +558,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "APE (YTD) last year": {
@@ -6076,183 +6079,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measures_table.m_ape_MoM_growth": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "m_ape_MoM_growth%"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "m_ape_MoM_growth%": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "m_ape_mom_growth percentage": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "m_ape_mom_growth pct": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "measures_table.m_last_month_ape": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "m_last_month_ape"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "m last month ape": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "m_last_month_ape": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "ape": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "month ape": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "last month ape": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "m last mth ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.617
-			          }
-			        },
-			        {
-			          "last mth ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "mth ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "m end month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m final month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m closing month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m concluding month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m finishing month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m former month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "m latest month ape": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
 			    "measures_table.m_ape_rolling_3_months": {
 			      "Definition": {
 			        "Binding": {
@@ -7985,167 +7811,389 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_agent.agent_indentifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_agent",
+			          "ConceptualProperty": "agent_indentifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "agent indentifier": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "agent_indentifier": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Agent Name (ID)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_latest_month_ape": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_latest_month_ape"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m latest month ape": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_latest_month_ape": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "month ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "latest month ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m latest mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "latest mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "m latest month chimpanzee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m latest month chimp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m latest month gorilla": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m latest month orangutan": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m latest month primate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m latest month baboon": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "latest month chimpanzee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_prior_month_ape": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_prior_month_ape"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m prior month ape": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_prior_month_ape": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "month ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "prior month ape": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m prior mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "prior mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "mth ape": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "m prior month chimpanzee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m prior month chimp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m prior month gorilla": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m prior month orangutan": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m prior month primate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m prior month baboon": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "prior month chimpanzee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_ape_ytd_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_ape_ytd_latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m ape ytd latest": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_ape_ytd_latest": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "ytd latest": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ape ytd latest": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m ape year to date latest": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "ape year to date latest": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.498
+			          }
+			        },
+			        {
+			          "year to date latest": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.48
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_persistency_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_persistency"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_persistency": {
-			          "Target": {
-			            "Entity": "fact_persistency"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_persistency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_persistency"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Prepositions": [
-			              {
-			                "due": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_are_due_dim_dates"
-			        }
-			      ]
-			    },
-			    "fact_persistency_has_dim_product": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_persistency"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_persistency": {
-			          "Target": {
-			            "Entity": "fact_persistency"
-			          }
-			        },
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Object": {
-			              "Role": "dim_product"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_have_dim_products"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "fact_persistency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_fact_persistency"
-			        }
-			      ]
-			    },
-			    "fact_persistency_has_dim_agent": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_persistency"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_persistency": {
-			          "Target": {
-			            "Entity": "fact_persistency"
-			          }
-			        },
-			        "dim_agent": {
-			          "Target": {
-			            "Entity": "dim_agent"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_persistency"
-			            },
-			            "Object": {
-			              "Role": "dim_agent"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_persistency_have_dim_agents"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_agent"
-			            },
-			            "Object": {
-			              "Role": "fact_persistency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_agents_have_fact_persistency"
-			        }
-			      ]
-			    },
 			    "fact_target_has_dim_date": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_target"
@@ -8413,6 +8461,237 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_securities_have_dim_agents"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_ape_ytd_latest": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "measures_table.m_ape_ytd_latest": {
+			          "Target": {
+			            "Entity": "measures_table.m_ape_ytd_latest"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_ape_ytd_latest"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_m_ape_ytd_latest"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_ape_ytd_latest": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_ape_ytd_latest": {
+			          "Target": {
+			            "Entity": "measures_table.m_ape_ytd_latest"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_ape_ytd_latest"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_ape_ytd_latest"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_prior_month_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "measures_table.m_prior_month_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_prior_month_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_prior_month_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_m_prior_month_ape"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_prior_month_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_prior_month_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_prior_month_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_prior_month_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_prior_month_ape"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_measures_table_m_latest_month_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "measures_table.m_latest_month_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_latest_month_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_latest_month_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_m_latest_month_ape"
+			        }
+			      ]
+			    },
+			    "dim_product_has_measures_table_m_latest_month_ape": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "measures_table.m_latest_month_ape": {
+			          "Target": {
+			            "Entity": "measures_table.m_latest_month_ape"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_latest_month_ape"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_m_latest_month_ape"
+			        }
+			      ]
+			    },
+			    "dim_agent_has_agent_indentifier": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_agent"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_agent": {
+			          "Target": {
+			            "Entity": "dim_agent"
+			          }
+			        },
+			        "dim_agent.agent_indentifier": {
+			          "Target": {
+			            "Entity": "dim_agent.agent_indentifier"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_agent"
+			            },
+			            "Object": {
+			              "Role": "dim_agent.agent_indentifier"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_agents_have_agent_indentifiers"
 			        }
 			      ]
 			    },
@@ -9172,138 +9451,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_products_have_m_ape_rolling_3_months"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_measures_table_m_last_month_ape": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "measures_table.m_last_month_ape": {
-			          "Target": {
-			            "Entity": "measures_table.m_last_month_ape"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_last_month_ape"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_m_last_month_ape"
-			        }
-			      ]
-			    },
-			    "dim_product_has_measures_table_m_last_month_ape": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_product"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        },
-			        "measures_table.m_last_month_ape": {
-			          "Target": {
-			            "Entity": "measures_table.m_last_month_ape"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_last_month_ape"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_m_last_month_ape"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_measures_table_m_ape_MoM_growth": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "measures_table.m_ape_MoM_growth": {
-			          "Target": {
-			            "Entity": "measures_table.m_ape_MoM_growth"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_ape_MoM_growth"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_m_ape_MoM_growth"
-			        }
-			      ]
-			    },
-			    "dim_product_has_measures_table_m_ape_MoM_growth": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_product"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        },
-			        "measures_table.m_ape_MoM_growth": {
-			          "Target": {
-			            "Entity": "measures_table.m_ape_MoM_growth"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "measures_table.m_ape_MoM_growth"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_m_ape_MoM_growth"
 			        }
 			      ]
 			    },
@@ -10705,105 +10852,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_sale_has_measures_table_APE_YTD_last_year": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "measures_table.APE_YTD_last_year": {
-			          "Target": {
-			            "Entity": "measures_table.APE_YTD_last_year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "measures_table.APE_YTD_last_year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_APE_YTD_last_year"
-			        }
-			      ]
-			    },
-			    "dim_product_has_measures_table_APE_YTD_last_year": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_product"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        },
-			        "measures_table.APE_YTD_last_year": {
-			          "Target": {
-			            "Entity": "measures_table.APE_YTD_last_year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "measures_table.APE_YTD_last_year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_APE_YTD_last_year"
-			        }
-			      ]
-			    },
-			    "dim_date_has_measures_table_APE_YTD_last_year": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "measures_table.APE_YTD_last_year": {
-			          "Target": {
-			            "Entity": "measures_table.APE_YTD_last_year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "measures_table.APE_YTD_last_year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_APE_YTD_last_year"
-			        }
-			      ]
-			    },
 			    "dim_security_has_user_email": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_security"
@@ -11020,6 +11068,164 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_agents_are_joined_on_join_dates"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_dim_agent": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "dim_agent": {
+			          "Target": {
+			            "Entity": "dim_agent"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "dim_agent"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_dim_agents"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_agent"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_agents_have_fact_persistency"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_dim_product": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "dim_product"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_dim_products"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_fact_persistency"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_persistency"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Prepositions": [
+			              {
+			                "due": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_are_due_dim_dates"
 			        }
 			      ]
 			    },

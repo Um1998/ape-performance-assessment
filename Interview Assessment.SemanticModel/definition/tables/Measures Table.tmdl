@@ -25,9 +25,8 @@ table 'Measures Table'
 			)
 			
 			```
+		formatString: 0.0
 		lineageTag: 4fb15985-dbe9-4d02-98f2-8ed688448ae6
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure m_ape(YTD) =
 			
@@ -36,24 +35,6 @@ table 'Measures Table'
 			    dim_date[date]
 			)
 		lineageTag: 41b6daa4-d3b4-4abb-ad88-bf7f1f71111d
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure m_ape_MoM_growth% =
-			
-			var currentAPE = 'Measures Table'[m_ape]
-			var lastMonthAPE = 'Measures Table'[m_last_month_ape]
-			RETURN DIVIDE((currentAPE - lastMonthAPE), (lastMonthAPE))
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 11237405-061a-42ec-a539-7de520778c45
-
-	measure m_last_month_ape =
-			
-			CALCULATE(
-			    [m_ape],
-			    DATEADD(dim_date[date],-1,MONTH)
-			)
-		lineageTag: 20643de1-8b93-427e-a96a-3bfcc600927c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -113,8 +94,8 @@ table 'Measures Table'
 	measure m_agent_rank_ytd =
 			
 			RANKX(
-			    ALL(dim_agent[agent_name]),
-			    [m_ape(YTD)],
+			    ALL(dim_agent[agent_name],dim_agent[agent_indentifier]),
+			    [m_ape_ytd_latest],
 			    ,
 			    DESC,
 			    DENSE
@@ -173,12 +154,11 @@ table 'Measures Table'
 	measure m_mom_change =
 			
 			DIVIDE(
-			    [m_ape] - [m_last_month_ape],
-			    [m_last_month_ape]
+			    [m_latest_month_ape] - [m_prior_month_ape],
+			    [m_prior_month_ape]
 			)
+		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 7cb9125d-ac87-4f50-bca4-25b7fb486447
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure m_trend_arrow =
 			
@@ -211,7 +191,7 @@ table 'Measures Table'
 			"</p>
 			
 			<p><b>YTD APE:</b> " &
-			FORMAT([m_ape(YTD)],"#,##0") &
+			FORMAT([m_ape_ytd_latest],"#,##0") &
 			"</p>
 			
 			<p><b>Rank:</b> " &
@@ -266,7 +246,61 @@ table 'Measures Table'
 			    [m_ape(YTD)],
 			    SAMEPERIODLASTYEAR(dim_date[date])
 			)
+		isHidden
 		lineageTag: 68ba87c0-7bc0-48d8-8abe-a6f6206330b2
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_latest_month_ape =
+			
+			VAR LatestDateKey = CALCULATE( MAX( fact_sales[date_key] ) )
+			VAR LatestDate = LOOKUPVALUE( dim_date[date], dim_date[date_key], LatestDateKey )
+			VAR MonthStart = DATE( YEAR(LatestDate), MONTH(LatestDate), 1 )
+			VAR MonthEnd = EOMONTH( MonthStart, 0 )
+			RETURN
+			CALCULATE(
+			    [m_ape],
+			    REMOVEFILTERS( dim_date ),
+			    dim_date[date] >= MonthStart,
+			    dim_date[date] <= MonthEnd
+			)
+		lineageTag: 7241a8f8-7c6a-4dd2-84ac-ad51345c11b4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_prior_month_ape =
+			
+			VAR LatestDateKey = CALCULATE( MAX( fact_sales[date_key] ) )
+			VAR LatestDate = LOOKUPVALUE( dim_date[date], dim_date[date_key], LatestDateKey )
+			VAR CurrentMonthStart = DATE( YEAR(LatestDate), MONTH(LatestDate), 1 )
+			VAR PriorMonthEnd = CurrentMonthStart - 1
+			VAR PriorMonthStart = DATE( YEAR(PriorMonthEnd), MONTH(PriorMonthEnd), 1 )
+			RETURN
+			CALCULATE(
+			    [m_ape],
+			    REMOVEFILTERS( dim_date ),
+			    dim_date[date] >= PriorMonthStart,
+			    dim_date[date] <= PriorMonthEnd
+			)
+		lineageTag: f11d57d6-73dc-49f2-a6f0-0f148de76ea9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_ape_ytd_latest =
+			
+			VAR LatestDateKey = CALCULATE( MAX( fact_sales[date_key] ), REMOVEFILTERS( dim_date ) )
+			VAR LatestDate = LOOKUPVALUE( dim_date[date], dim_date[date_key], LatestDateKey )
+			VAR YearStart = DATE( YEAR(LatestDate), 1, 1 )
+			RETURN
+			CALCULATE(
+			    [m_ape],
+			    REMOVEFILTERS( dim_date ),
+			    dim_date[date] >= YearStart,
+			    dim_date[date] <= LatestDate
+			)
+		lineageTag: 10c32abe-fd19-4280-b2f0-a2f517dac99f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

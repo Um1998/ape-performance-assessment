@@ -130,5 +130,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ab1e219da4c308337e40",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures Table"
+              }
+            },
+            "Property": "m_agent_profile_html"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

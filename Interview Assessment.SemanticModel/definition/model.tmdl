@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["dim_date","dim_agent","dim_product","fact_sales","fact_target","fact_persistency","Measures Table","dim_security"]
+annotation PBI_QueryOrder = ["dim_date","dim_agent","dim_product","fact_sales","fact_target","fact_persistency","Measures Table","dim_security","DimAgentIds"]
 
 annotation PBI_ProTooling = ["DevMode"]
 

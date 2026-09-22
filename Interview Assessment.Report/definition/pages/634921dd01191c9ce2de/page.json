@@ -49,7 +49,61 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Amit Gupta'"
+                          "Value": "'Kavita Joshi'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "8388cb6e52ed20830b0c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_agent"
+              }
+            },
+            "Property": "agent_indentifier"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_agent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "agent_indentifier"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Kavita Joshi (157)'"
                         }
                       }
                     ]
@@ -80,8 +134,24 @@
             "Property": "agent_name"
           }
         }
+      },
+      {
+        "name": "668963cb1cd14055122a",
+        "boundFilter": "8388cb6e52ed20830b0c",
+        "asAggregation": false,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_agent"
+              }
+            },
+            "Property": "agent_indentifier"
+          }
+        }
       }
     ],
-    "referenceScope": "CrossReport"
+    "acceptsFilterContext": "None"
   }
 }

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4ed84bc6650384205877",
+  "position": {
+    "x": 1381.4456334138765,
+    "y": 503.42837418018644,
+    "z": 6001,
+    "height": 150.31273731446325,
+    "width": 434.23679668622714,
+    "tabOrder": 6001
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_latest_month_ape"
+                }
+              },
+              "queryRef": "Measures Table.m_latest_month_ape",
+              "nativeQueryRef": "m_latest_month_ape"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_prior_month_ape"
+                }
+              },
+              "queryRef": "Measures Table.m_prior_month_ape",
+              "nativeQueryRef": "m_prior_month_ape"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures Table"
+                    }
+                  },
+                  "Property": "m_mom_change"
+                }
+              },
+              "queryRef": "Measures Table.m_mom_change",
+              "nativeQueryRef": "m_mom_change"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures Table"
+                  }
+                },
+                "Property": "m_latest_month_ape"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

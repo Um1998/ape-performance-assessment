@@ -92,9 +92,17 @@ table fact_sales
 				let
 				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\fact_sales.csv"),[Delimiter=",", Columns=8, QuoteStyle=QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"sale_id", Int64.Type}, {"date_key", Int64.Type}, {"agent_id", Int64.Type}, {"product_id", Int64.Type}, {"ape_usd", type number}, {"fyp_usd", type number}, {"policies_issued", Int64.Type}, {"sale_channel", type text}}, "en-US")
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"sale_id", Int64.Type}, {"date_key", Int64.Type}, {"agent_id", Int64.Type}, {"product_id", Int64.Type}, {"ape_usd", type number}, {"fyp_usd", type number}, {"policies_issued", Int64.Type}, {"sale_channel", type text}}, "en-US"),
+				  #"Added Unknown Agents" = Table.ReplaceValue(
+				    #"Changed column type",
+				    each [agent_id],
+				    each if List.Contains(DimAgentIds, [agent_id]) then [agent_id] else -1,
+				    Replacer.ReplaceValue,
+				    {"agent_id"}
+				),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Unknown Agents",{{"agent_id", Int64.Type}})
 				in
-				  #"Changed column type"
+				  #"Changed Type"
 
 	annotation PBI_ResultType = Table
 

@@ -83,15 +83,39 @@ table dim_agent
 
 		annotation SummarizationSetBy = Automatic
 
+	column agent_indentifier
+		dataType: string
+		lineageTag: 6c455800-ada4-4cb0-a1e5-e09ab28bab07
+		summarizeBy: none
+		sourceColumn: agent_indentifier
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_agent = m
 		mode: import
 		source =
 				let
 				  Source = Csv.Document(File.Contents("D:\PBI\Chubb Assessment\dim_agent.csv"),[Delimiter=",", Columns=9, QuoteStyle=QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"agent_id", Int64.Type}, {"agent_code", type text}, {"agent_name", type text}, {"region", type text}, {"territory", type text}, {"office", type text}, {"join_date", type date}, {"channel", type text}, {"active_flag", Int64.Type}}, "en-US")
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"agent_id", Int64.Type}, {"agent_code", type text}, {"agent_name", type text}, {"region", type text}, {"territory", type text}, {"office", type text}, {"join_date", type date}, {"channel", type text}, {"active_flag", Int64.Type}}, "en-US"),
+				  #"Inserted Unkown Agent" = Table.InsertRows(
+				    #"Changed column type",
+				    0,
+				    {[
+				        agent_id = -1,
+				        agent_code = "UNK",
+				        agent_name = "Unknown Agent",
+				        region = "Unassigned",
+				        territory = "Unassigned",
+				        office = "Unassigned",
+				        join_date = null,
+				        channel = "Unknown",
+				        active_flag = 0
+				    ]}
+				),
+				    #"Added Custom" = Table.AddColumn(#"Inserted Unkown Agent", "agent_indentifier", each [agent_name] & " (" & Text.From([agent_id]) & ")")
 				in
-				  #"Changed column type"
+				  #"Added Custom"
 
 	annotation PBI_ResultType = Table
 

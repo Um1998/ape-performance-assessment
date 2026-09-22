@@ -1,0 +1,12 @@
+expression DimAgentIds =
+		let
+		  Source = "",
+		    Custom1 = Table.Column(dim_agent, "agent_id")
+		in
+		  Custom1
+	lineageTag: 8047c207-c578-47cc-8d56-08255c0b7758
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = List
+
