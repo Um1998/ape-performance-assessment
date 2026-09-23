@@ -3,10 +3,10 @@
   "name": "e8747988d0c25d39278a",
   "position": {
     "x": 0,
-    "y": 991.48371956585515,
+    "y": 895.41263678079781,
     "z": 13000,
-    "height": 66.041215297022219,
-    "width": 253.84592129792915,
+    "height": 65.875044122837977,
+    "width": 253.74091069537593,
     "tabOrder": 14000
   },
   "visual": {
@@ -81,6 +81,38 @@
           },
           "selector": {
             "id": "36b1e0f5e76530b3be0d"
+          }
+        },
+        {
+          "properties": {
+            "showByDefault": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showHiddenPages": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1d3af83633bc12a49840"
           }
         }
       ],

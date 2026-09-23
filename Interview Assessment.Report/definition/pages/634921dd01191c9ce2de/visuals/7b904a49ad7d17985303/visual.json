@@ -82,6 +82,31 @@
           "selector": {
             "id": "36b1e0f5e76530b3be0d"
           }
+        },
+        {
+          "properties": {
+            "showHiddenPages": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "93ea590418587537ba96"
+          }
         }
       ],
       "text": [

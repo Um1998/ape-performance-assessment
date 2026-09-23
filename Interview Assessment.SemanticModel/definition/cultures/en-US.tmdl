@@ -7791,7 +7791,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "APE vs Target %": {
+			          "APE Target %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -7801,7 +7801,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "APE Target %": {
+			          "APE vs Target %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -8191,6 +8191,624 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "fact_persistency.cohort_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_persistency",
+			          "ConceptualProperty": "cohort_year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cohort year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cohort_year": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "year": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "cohort yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_persistency.renewal_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_persistency",
+			          "ConceptualProperty": "renewal_year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "renewal year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "renewal_year": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "year": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "renewal yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_persistency.year_since_issue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_persistency",
+			          "ConceptualProperty": "years_since_issue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "year since issue": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "years_since_issue": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "yr since issue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_policy_issued": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_policy_issued"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m policy issued": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_policy_issued": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "m strategy issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "m procedure issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "m dogma issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "m rule issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "m plan issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "m program issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "m statement issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "m testament issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "m contract issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "m document issued": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_cohort_persistency": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_cohort_persistency"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m cohort persistency": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_cohort_persistency": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "persistency": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cohort persistency": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_active_policy_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_active_policy_count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m active policy count": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_active_policy_count": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "policy count": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "active policy count": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m active policy amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "active policy amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "policy amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_persistency_rate_cohort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_persistency_rate_cohort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m persistency rate cohort": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_persistency_rate_cohort": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "rate cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "persistency rate cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m persistency rate unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m persistency rate army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "persistency rate unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "persistency rate army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "rate unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rate army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "m persistency rate troop": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "m persistency rate regiment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "m persistency rate legion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "m persistency rate group": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.m_policy_count_cohort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures Table",
+			          "ConceptualProperty": "m_policy_count_cohort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m policy count cohort": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_policy_count_cohort": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "count cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "policy count cohort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "m policy amount cohort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "policy amount cohort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "amount cohort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "m policy count unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "m policy count army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "policy count unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "policy count army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "count unit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "count army": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "m policy count troop": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -8461,6 +9079,270 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_securities_have_dim_agents"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_measures_table_m_policy_count_cohort": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "measures_table.m_policy_count_cohort": {
+			          "Target": {
+			            "Entity": "measures_table.m_policy_count_cohort"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_policy_count_cohort"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_m_policy_count_cohort"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_measures_table_m_persistency_rate_cohort": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "measures_table.m_persistency_rate_cohort": {
+			          "Target": {
+			            "Entity": "measures_table.m_persistency_rate_cohort"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_persistency_rate_cohort"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_m_persistency_rate_cohort"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_measures_table_m_active_policy_count": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "measures_table.m_active_policy_count": {
+			          "Target": {
+			            "Entity": "measures_table.m_active_policy_count"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_active_policy_count"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_m_active_policy_count"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_measures_table_m_cohort_persistency": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "measures_table.m_cohort_persistency": {
+			          "Target": {
+			            "Entity": "measures_table.m_cohort_persistency"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_cohort_persistency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_m_cohort_persistency"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_measures_table_m_policy_issued": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "measures_table.m_policy_issued": {
+			          "Target": {
+			            "Entity": "measures_table.m_policy_issued"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "measures_table.m_policy_issued"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_m_policy_issued"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_year_since_issue": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "fact_persistency.year_since_issue": {
+			          "Target": {
+			            "Entity": "fact_persistency.year_since_issue"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency.year_since_issue"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_year_since_issue"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_renewal_year": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "fact_persistency.renewal_year": {
+			          "Target": {
+			            "Entity": "fact_persistency.renewal_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency.renewal_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_renewal_years"
+			        }
+			      ]
+			    },
+			    "fact_persistency_has_cohort_year": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_persistency"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_persistency": {
+			          "Target": {
+			            "Entity": "fact_persistency"
+			          }
+			        },
+			        "fact_persistency.cohort_year": {
+			          "Target": {
+			            "Entity": "fact_persistency.cohort_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_persistency"
+			            },
+			            "Object": {
+			              "Role": "fact_persistency.cohort_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_persistency_have_cohort_years"
 			        }
 			      ]
 			    },

@@ -27,13 +27,31 @@
             height: 80px;
             background-color: #0078D4;
             color: white;
-            font-size: 32px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .logo-box {
+            width: 70px;
+            height: 50px;
+            border: 2px dashed rgba(255,255,255,0.6);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            font-size: 12px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .header-title {
+            font-size: 32px;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 90px; /* balances the logo box so title stays visually centered */
         }
 
         /* Filters */
@@ -103,6 +121,8 @@
             font-size: 22px;
             color: #666;
             font-weight: bold;
+            text-align: center;
+            padding: 20px;
         }
 
         .note {
@@ -120,7 +140,8 @@
 
     <!-- Header -->
     <div class="header">
-        APE Performance Report
+        <div class="logo-box">Logo</div>
+        <div class="header-title">APE Performance Report</div>
     </div>
 
     <!-- Filters -->
@@ -166,10 +187,6 @@
             Top 10 Agents by APE
         </div>
 
-    </div>
-
-    <div class="note">
-        Wireframe Only - Executive Summary Layout
     </div>
 
 </div>

@@ -64,6 +64,36 @@ table fact_persistency
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column cohort_year =
+			
+			LOOKUPVALUE( dim_date[year], dim_date[date_key], fact_persistency[issue_date_key] )
+		formatString: 0
+		lineageTag: ccc6e926-deaf-4654-82d5-dfffe5cf84bc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column renewal_year =
+			
+			VAR RenewalYear = LOOKUPVALUE( dim_date[year], dim_date[date_key], fact_persistency[renewal_due_date_key] )
+			RETURN RenewalYear
+		formatString: 0
+		lineageTag: 92495318-f23c-4db8-aaf4-73ce3befdea6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column years_since_issue =
+			
+			VAR IssueYear = LOOKUPVALUE( dim_date[year], dim_date[date_key], fact_persistency[issue_date_key] )
+			VAR RenewalYear = LOOKUPVALUE( dim_date[year], dim_date[date_key], fact_persistency[renewal_due_date_key] )
+			RETURN RenewalYear - IssueYear
+		formatString: 0
+		lineageTag: 8a514601-55c6-409e-bcbe-2af444e069a8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
 	partition fact_persistency = m
 		mode: import
 		source =

@@ -53,11 +53,13 @@ table 'Measures Table'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure m_policies_renewed =
+	measure m_policies_renewed = ```
 			
 			CALCULATE(
-			    COUNTROWS(FILTER( fact_persistency, fact_persistency[renewal_status] = "renewed" ))
+			    COUNTROWS(fact_persistency), 
+			    fact_persistency[renewal_status] = "renewed" 
 			)
+			```
 		formatString: 0
 		lineageTag: a5be1ad1-333f-473c-bd8a-7ca194245099
 
@@ -303,6 +305,69 @@ table 'Measures Table'
 		lineageTag: 10c32abe-fd19-4280-b2f0-a2f517dac99f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_policy_issued = COUNTROWS(fact_persistency)
+		formatString: 0
+		lineageTag: afe53133-2868-454f-a130-9bed77e89c91
+
+	measure m_cohort_persistency = ```
+			
+			CALCULATE (
+			    [m_persistency_rate],
+			    ALLEXCEPT ( fact_persistency, fact_persistency[issue_date_key], fact_persistency[renewal_due_date_key] )
+			)
+			
+			```
+		lineageTag: 9f1d9c10-e54d-49a2-94eb-709dd418bd36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure m_active_policy_count =
+			
+			VAR SnapshotDateKey =
+			    CALCULATE( MAX( dim_date[date_key] ), REMOVEFILTERS( dim_date ) )
+			RETURN
+			CALCULATE(
+			    COUNTROWS(
+			        FILTER(
+			            fact_persistency,
+			            fact_persistency[issue_date_key] <= SnapshotDateKey
+			                && (
+			                    fact_persistency[renewal_due_date_key] > SnapshotDateKey
+			                    || fact_persistency[renewal_status] <> "lapsed"
+			                )
+			        )
+			    ),
+			    REMOVEFILTERS( dim_date )
+			)
+		formatString: 0
+		lineageTag: d8ba5cc7-995c-46e5-9fc0-4eee6f07f91a
+
+	measure m_persistency_rate_cohort =
+			
+			CALCULATE(
+			    DIVIDE(
+			        COUNTROWS( FILTER( fact_persistency, fact_persistency[renewal_status] = "renewed" ) ),
+			        COUNTROWS( FILTER( fact_persistency, fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" } ) )
+			    ),
+			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key] )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 445da072-f00a-4669-bf1a-7122f022898e
+
+	measure m_policy_count_cohort =
+			
+			CALCULATE(
+			    COUNTROWS(
+			        FILTER(
+			            fact_persistency,
+			            fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" }
+			        )
+			    ),
+			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key] )
+			)
+		formatString: 0
+		lineageTag: 231959a1-df8d-4546-949c-2c533e3a6a0b
 
 	column Column1
 		dataType: string

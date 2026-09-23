@@ -3,10 +3,10 @@
   "name": "ea4446a2d98bc3a61b15",
   "position": {
     "x": 0,
-    "y": 991,
+    "y": 907.6117190257678,
     "z": 9002,
-    "height": 66,
-    "width": 260
+    "height": 65.875044122837977,
+    "width": 261.06036004235796
   },
   "visual": {
     "visualType": "pageNavigator",
@@ -52,6 +52,31 @@
           },
           "selector": {
             "id": "93ea590418587537ba96"
+          }
+        },
+        {
+          "properties": {
+            "showHiddenPages": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1d3af83633bc12a49840"
           }
         }
       ],
