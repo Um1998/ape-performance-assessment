@@ -350,7 +350,7 @@ table 'Measures Table'
 			        COUNTROWS( FILTER( fact_persistency, fact_persistency[renewal_status] = "renewed" ) ),
 			        COUNTROWS( FILTER( fact_persistency, fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" } ) )
 			    ),
-			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key] )
+			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key])
 			)
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 445da072-f00a-4669-bf1a-7122f022898e
@@ -364,7 +364,7 @@ table 'Measures Table'
 			            fact_persistency[renewal_status] IN { "renewed", "lapsed", "grace" }
 			        )
 			    ),
-			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key] )
+			    USERELATIONSHIP( fact_persistency[issue_date_key], dim_date[date_key])
 			)
 		formatString: 0
 		lineageTag: 231959a1-df8d-4546-949c-2c533e3a6a0b
