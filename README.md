@@ -21,10 +21,10 @@ as secondary fact tables sharing the same conformed dimensions:
 ### Key decisions
 
 **Unresolved `agent_id` values in the fact tables.**
-`fact_sales` and `fact_persistency` both contain `agent_id` values with no match in
+`fact_sales' contain `agent_id` values with no match in
 `dim_agent`. Rather than let Power BI silently drop these into a blank row, an
 explicit **"Unknown Agent"** member (`agent_id = -1`) was added to `dim_agent` in
-Power Query, and any unmatched `agent_id` in the fact tables is remapped to it. This
+Power Query, and any unmatched `agent_id` in the fact table is remapped to it. This
 keeps every dollar of APE and every policy attributable and visible in totals,
 rather than disappearing from the report.
 
